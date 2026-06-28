@@ -5,4 +5,5 @@ out/
 !.env.example
 data/admin.json
 *.log
+*.tsbuildinfo
 .DS_Store
