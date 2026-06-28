@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "mobileMode": "same",
+    "desktop": {
+      "provider": "file",
+      "value": "",
+      "poster": ""
+    },
+    "mobile": {
+      "provider": "file",
+      "value": "",
+      "poster": ""
+    }
+  }
+}

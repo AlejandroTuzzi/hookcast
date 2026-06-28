@@ -1,0 +1,54 @@
+import Link from "next/link";
+import { ResponsiveHeroVideo } from "@/components/responsive-hero-video";
+import { SiteHeader } from "@/components/site-header";
+import { getSiteConfig } from "@/lib/site-config";
+
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const { hero } = await getSiteConfig();
+
+  return (
+    <main>
+      <section className="hero">
+        <SiteHeader />
+        <ResponsiveHeroVideo hero={hero} />
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-grain" aria-hidden="true" />
+        <div className="hero-content">
+          <p className="eyebrow"><span /> Human-directed AI performance</p>
+          <h1>AI ads that<br />don&apos;t look <em>AI.</em></h1>
+          <p className="hero-subtitle">
+            Hyperreal UGC avatars, handcrafted with every pause, blink and imperfection
+            your audience expects from a real person.
+          </p>
+          <div className="hero-actions">
+            <Link className="button button-primary" href="#contact">Start a project <span>↗</span></Link>
+            <Link className="button button-ghost" href="#work"><span className="play">▶</span> Watch the work</Link>
+          </div>
+        </div>
+        <p className="hero-note">Built for paid social · DTC · SaaS · Agencies</p>
+      </section>
+
+      <section className="manifesto" id="process">
+        <p className="section-label">The HookCast difference</p>
+        <h2>We put the human<br /><span>imperfections back in.</span></h2>
+        <p>
+          The stumbles. The asymmetric smile. The pause before the product claim.
+          We direct every detail that fast AI generation edits out.
+        </p>
+      </section>
+
+      <section className="work-placeholder" id="work" aria-label="Selected work coming soon">
+        <p className="section-label">Selected work</p>
+        <div><span>Case studies are being cut.</span><strong>Coming soon.</strong></div>
+      </section>
+
+      <section className="contact" id="contact">
+        <p className="section-label">Have a product to sell?</p>
+        <h2>Let&apos;s make it<br /><em>feel real.</em></h2>
+        <a className="button button-primary" href="mailto:hello@hookcast.studio">hello@hookcast.studio <span>↗</span></a>
+      </section>
+    </main>
+  );
+}
