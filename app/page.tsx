@@ -16,7 +16,6 @@ export default async function Home() {
         <SiteHeader />
         <ResponsiveHeroVideo hero={hero} />
         <div className="hero-shade" aria-hidden="true" />
-        <div className="hero-grain" aria-hidden="true" />
         <div className="hero-content">
           <p className="eyebrow"><span /> Human-directed AI performance</p>
           <h1>AI ads that<br />don&apos;t look <em>AI.</em></h1>

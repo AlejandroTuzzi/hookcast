@@ -28,12 +28,11 @@ button, input, select { font: inherit; }
 .site-header .nav-cta:hover { background: var(--text); border-color: var(--text); color: var(--ink); }
 .menu-toggle { display: none; }
 
-.hero-media, .hero-video, .hero-video-placeholder, .hero-shade, .hero-grain { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-media, .hero-video, .hero-video-placeholder, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-media { z-index: -4; background: #10151a; }
 .hero-video, mux-player.hero-video { object-fit: cover; --controls: none; --media-object-fit: cover; }
 .hero-video-placeholder { background: radial-gradient(circle at 73% 35%, rgba(0,191,255,.23), transparent 24%), linear-gradient(125deg, #080a0c 30%, #16212a 100%); }
 .hero-shade { z-index: -3; background: linear-gradient(90deg, rgba(3,5,7,.91) 0%, rgba(3,5,7,.55) 43%, rgba(3,5,7,.08) 77%), linear-gradient(0deg, rgba(3,5,7,.75) 0%, transparent 50%); }
-.hero-grain { z-index: -2; opacity: .16; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E"); }
 .hero-content { width: min(820px, 78vw); padding: 180px clamp(24px, 6vw, 108px) clamp(82px, 11vh, 126px); }
 .eyebrow, .section-label { text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 800; }
 .eyebrow { display: flex; align-items: center; gap: 11px; color: #d7d9da; margin: 0 0 25px; }
