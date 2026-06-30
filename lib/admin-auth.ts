@@ -3,7 +3,8 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { cookies } from "next/headers";
 
-const adminPath = path.join(process.cwd(), "data", "admin.json");
+const dataDirectory = process.env.HOOKCAST_DATA_DIR ?? path.join(process.cwd(), "data");
+const adminPath = path.join(dataDirectory, "admin.json");
 const cookieName = "hookcast_admin";
 const sessionLifetime = 60 * 60 * 12;
 

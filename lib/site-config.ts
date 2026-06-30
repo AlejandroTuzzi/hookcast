@@ -18,7 +18,8 @@ export type SiteConfig = {
   };
 };
 
-const configPath = path.join(process.cwd(), "data", "site-config.json");
+const dataDirectory = process.env.HOOKCAST_DATA_DIR ?? path.join(process.cwd(), "data");
+const configPath = path.join(dataDirectory, "site-config.json");
 
 export const defaultSiteConfig: SiteConfig = {
   hero: {

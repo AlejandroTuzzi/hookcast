@@ -1,0 +1,11 @@
+.git
+.github
+.next
+node_modules
+npm-debug.log*
+.env*
+!.env.example
+data/admin.json
+data/site-config.json
+tsconfig.tsbuildinfo
+README.md
