@@ -124,7 +124,11 @@ button, input, select { font: inherit; }
 .project-submit-row p { margin: 0; color: #686e72; font-size: 11px; line-height: 1.45; text-transform: uppercase; letter-spacing: .08em; }
 .project-form-message { margin: 0; padding: 13px 15px; border-left: 3px solid var(--coral); background: rgba(255,110,97,.08); color: #ff9a91; font-size: 13px; }
 .project-video-wrap { position: sticky; top: 125px; }
-.project-video-wrap > mux-player, .project-video-wrap > video, .project-video-placeholder { display: block; width: 100%; aspect-ratio: 9 / 16; background: #0c1014; border: 1px solid var(--line); object-fit: cover; --media-object-fit: cover; --controls: none; }
+.project-video-stage, .project-video-placeholder { display: block; width: 100%; aspect-ratio: 9 / 16; background: #0c1014; border: 1px solid var(--line); }
+.project-video-stage { position: relative; overflow: hidden; }
+.project-video-player { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; --media-object-fit: cover; }
+.project-video-play { position: absolute; z-index: 3; inset: 0; width: 100%; border: 0; display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(5,7,9,.64); color: #fff; cursor: pointer; font: 900 11px/1 Inter, "Helvetica Neue", Arial, sans-serif; text-transform: uppercase; letter-spacing: .12em; backdrop-filter: blur(5px); }
+.project-video-play span { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; color: var(--yellow); }
 .project-video-placeholder { position: relative; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 80% 25%, rgba(0,191,255,.2), transparent 30%), linear-gradient(145deg, #0d1115, #090a0c); }
 .project-video-placeholder::before { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(255,255,255,.08); }
 .project-video-placeholder span { color: var(--coral); font-size: 10px; letter-spacing: .14em; font-weight: 900; }
