@@ -12,6 +12,15 @@ import {
   verifyPassword,
 } from "@/lib/admin-auth";
 import { saveSiteConfig, type SiteConfig, type VideoProvider } from "@/lib/site-config";
+import {
+  addWorkItem,
+  deleteWorkItem,
+  getYouTubeId,
+  isValidLocalVideoSource,
+  moveWorkItem,
+  type WorkOrientation,
+  type WorkProvider,
+} from "@/lib/work";
 
 export type FormState = { status: "idle" | "success" | "error"; message: string };
 
@@ -137,4 +146,51 @@ export async function changePasswordAction(_: FormState, formData: FormData): Pr
 
   await createSession();
   return { status: "success", message: "Password changed. Other sessions have been closed." };
+}
+
+export async function addWorkAction(_: FormState, formData: FormData): Promise<FormState> {
+  if (!(await isAuthenticated())) return { status: "error", message: "Your session expired. Sign in again." };
+
+  const workProvider: WorkProvider = text(formData, "provider") === "youtube" ? "youtube" : "local";
+  const orientation: WorkOrientation = text(formData, "orientation") === "vertical" ? "vertical" : "horizontal";
+  const source = text(formData, "source");
+  const title = text(formData, "title");
+  const description = text(formData, "description");
+
+  if (!title || title.length > 120) {
+    return { status: "error", message: "Add a title of no more than 120 characters." };
+  }
+  if (description.length > 500) {
+    return { status: "error", message: "Keep the description under 500 characters." };
+  }
+  if (workProvider === "youtube" && !getYouTubeId(source)) {
+    return { status: "error", message: "Add a valid YouTube, Shorts or youtu.be link." };
+  }
+  if (workProvider === "local" && !isValidLocalVideoSource(source)) {
+    return { status: "error", message: "Use a /media/ path or a valid HTTP video URL." };
+  }
+
+  try {
+    await addWorkItem({ provider: workProvider, orientation, source, title, description });
+    revalidatePath("/");
+    revalidatePath("/admin/dashboard");
+    return { status: "success", message: "Video added to Selected Work." };
+  } catch {
+    return { status: "error", message: "The video could not be saved." };
+  }
+}
+
+export async function deleteWorkAction(formData: FormData) {
+  if (!(await isAuthenticated())) redirect("/admin/login");
+  await deleteWorkItem(text(formData, "id"));
+  revalidatePath("/");
+  revalidatePath("/admin/dashboard");
+}
+
+export async function moveWorkAction(formData: FormData) {
+  if (!(await isAuthenticated())) redirect("/admin/login");
+  const direction = text(formData, "direction") === "up" ? "up" : "down";
+  await moveWorkItem(text(formData, "id"), direction);
+  revalidatePath("/");
+  revalidatePath("/admin/dashboard");
 }

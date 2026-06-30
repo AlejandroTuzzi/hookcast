@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { ResponsiveHeroVideo } from "@/components/responsive-hero-video";
 import { SiteHeader } from "@/components/site-header";
+import { SelectedWork } from "@/components/selected-work";
 import { getSiteConfig } from "@/lib/site-config";
+import { getWorkItems } from "@/lib/work";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { hero } = await getSiteConfig();
+  const [{ hero }, workItems] = await Promise.all([getSiteConfig(), getWorkItems()]);
 
   return (
     <main>
@@ -39,10 +41,7 @@ export default async function Home() {
         </p>
       </section>
 
-      <section className="work-placeholder" id="work" aria-label="Selected work coming soon">
-        <p className="section-label">Selected work</p>
-        <div><span>Case studies are being cut.</span><strong>Coming soon.</strong></div>
-      </section>
+      <SelectedWork items={workItems} />
 
       <section className="contact" id="contact">
         <p className="section-label">Have a product to sell?</p>
