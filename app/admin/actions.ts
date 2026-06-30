@@ -11,7 +11,7 @@ import {
   isAuthenticated,
   verifyPassword,
 } from "@/lib/admin-auth";
-import { saveSiteConfig, type SiteConfig, type VideoProvider } from "@/lib/site-config";
+import { getSiteConfig, saveSiteConfig, type SiteConfig, type VideoProvider } from "@/lib/site-config";
 import {
   addWorkItem,
   deleteWorkItem,
@@ -109,7 +109,9 @@ export async function saveHeroAction(_: FormState, formData: FormData): Promise<
     return { status: "error", message: "The mobile video URL or Mux playback ID is invalid." };
   }
 
+  const currentConfig = await getSiteConfig();
   const config: SiteConfig = {
+    ...currentConfig,
     hero: {
       mobileMode,
       desktop: {
@@ -131,6 +133,33 @@ export async function saveHeroAction(_: FormState, formData: FormData): Promise<
     return { status: "success", message: "Hero video settings saved." };
   } catch {
     return { status: "error", message: "Settings could not be written to storage." };
+  }
+}
+
+export async function saveProjectVideoAction(_: FormState, formData: FormData): Promise<FormState> {
+  if (!(await isAuthenticated())) return { status: "error", message: "Your session expired. Sign in again." };
+  const videoProvider = provider(text(formData, "projectProvider"));
+  const value = text(formData, "projectValue");
+  if (!isValidSource(videoProvider, value)) {
+    return { status: "error", message: "The video URL or Mux playback ID is invalid." };
+  }
+
+  try {
+    const currentConfig = await getSiteConfig();
+    await saveSiteConfig({
+      ...currentConfig,
+      project: {
+        video: {
+          provider: videoProvider,
+          value,
+          poster: text(formData, "projectPoster"),
+        },
+      },
+    });
+    revalidatePath("/start-a-project");
+    return { status: "success", message: "Start a Project video saved." };
+  } catch {
+    return { status: "error", message: "The project page settings could not be saved." };
   }
 }
 

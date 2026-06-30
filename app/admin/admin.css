@@ -58,6 +58,19 @@
 .future-content strong { text-transform: uppercase; font-size: 18px; }
 .future-content p { max-width: 650px; color: #8a9094; line-height: 1.6; }
 .future-content span { color: #ffd54d; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; font-weight: 900; }
+.admin-panel-content { margin-left: 48px; }
+.lead-inbox { display: grid; gap: 14px; }
+.lead-card { padding: 24px; border: 1px solid rgba(255,255,255,.11); background: #0b0e11; }
+.lead-card header { display: flex; justify-content: space-between; gap: 20px; }
+.lead-card header span { color: #00bfff; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.lead-card h3 { margin: 6px 0 0; font-size: 22px; text-transform: uppercase; }
+.lead-card time { color: #686e72; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+.lead-card > p { margin: 22px 0; color: #a4a8aa; line-height: 1.65; white-space: pre-wrap; }
+.lead-card dl { margin: 0 0 24px; display: flex; flex-wrap: wrap; gap: 18px 35px; }
+.lead-card dl div { display: grid; gap: 4px; }
+.lead-card dt { color: #686e72; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.lead-card dd { margin: 0; font-size: 12px; }
+.lead-card .admin-button { text-decoration: none; }
 .work-manager { margin-left: 48px; display: grid; gap: 48px; }
 .work-manager > .admin-form { padding: 26px; border: 1px solid rgba(255,255,255,.11); background: #0b0e11; }
 .work-admin-list { display: grid; gap: 10px; }
@@ -84,7 +97,7 @@
   .admin-main { padding: 48px 20px 90px; }
   .admin-header { align-items: flex-start; margin-bottom: 55px; }
   .admin-badge { display: none; }
-  .admin-panel > .admin-form, .admin-panel > .future-content { margin-left: 0; }
+  .admin-panel > .admin-form, .admin-panel > .future-content, .admin-panel-content { margin-left: 0; }
   .admin-field-grid, .admin-field-grid.equal-columns, .radio-cards { grid-template-columns: 1fr; }
   .admin-intro { display: grid; }
   .work-manager { margin-left: 0; }

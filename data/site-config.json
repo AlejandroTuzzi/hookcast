@@ -11,5 +11,12 @@
       "value": "",
       "poster": ""
     }
+  },
+  "project": {
+    "video": {
+      "provider": "file",
+      "value": "",
+      "poster": ""
+    }
   }
 }

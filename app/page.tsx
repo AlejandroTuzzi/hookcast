@@ -25,7 +25,7 @@ export default async function Home() {
             your audience expects from a real person.
           </p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="#contact">Start a project <span>↗</span></Link>
+            <Link className="button button-primary" href="/start-a-project">Start a project <span>↗</span></Link>
             <Link className="button button-ghost" href="#work"><span className="play">▶</span> Watch the work</Link>
           </div>
         </div>
@@ -46,7 +46,8 @@ export default async function Home() {
       <section className="contact" id="contact">
         <p className="section-label">Have a product to sell?</p>
         <h2>Let&apos;s make it<br /><em>feel real.</em></h2>
-        <a className="button button-primary" href="mailto:hello@hookcast.studio">hello@hookcast.studio <span>↗</span></a>
+        <Link className="button button-primary" href="/start-a-project">Start a project <span>↗</span></Link>
+        <a className="contact-email" href="mailto:alejandro@hookcast.studio">alejandro@hookcast.studio</a>
       </section>
     </main>
   );
