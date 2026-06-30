@@ -49,6 +49,16 @@ button, input, select { font: inherit; }
 .button-ghost:hover { background: var(--text); color: var(--ink); }
 .play { color: var(--coral); font-size: 11px; }
 .hero-note { position: absolute; right: clamp(24px, 4vw, 72px); bottom: 36px; margin: 0; writing-mode: vertical-rl; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.68); }
+.hero-audio-control { position: absolute; z-index: 5; right: clamp(52px, 6vw, 100px); bottom: 32px; min-height: 38px; padding: 0 14px; display: flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,.24); background: rgba(7,9,11,.38); color: rgba(255,255,255,.78); cursor: pointer; backdrop-filter: blur(9px); font: 800 9px/1 Inter, "Helvetica Neue", Arial, sans-serif; text-transform: uppercase; letter-spacing: .11em; transition: border-color .2s ease, color .2s ease, background .2s ease; }
+.hero-audio-control:hover, .hero-audio-control.is-active { border-color: rgba(0,191,255,.7); background: rgba(7,9,11,.62); color: #fff; }
+.audio-bars { width: 15px; height: 13px; display: flex; align-items: center; justify-content: center; gap: 2px; }
+.audio-bars i { width: 2px; height: 4px; display: block; background: var(--blue); }
+.audio-bars i:nth-child(2) { height: 9px; }
+.audio-bars i:nth-child(3) { height: 6px; }
+.hero-audio-control.is-active .audio-bars i { animation: audio-pulse .8s ease-in-out infinite alternate; }
+.hero-audio-control.is-active .audio-bars i:nth-child(2) { animation-delay: -.35s; }
+.hero-audio-control.is-active .audio-bars i:nth-child(3) { animation-delay: -.15s; }
+@keyframes audio-pulse { from { transform: scaleY(.45); } to { transform: scaleY(1); } }
 
 .manifesto, .contact { min-height: 78vh; padding: clamp(90px, 12vw, 190px) clamp(24px, 7vw, 120px); display: flex; flex-direction: column; justify-content: center; }
 .section-label { color: var(--blue); margin: 0 0 38px; }
@@ -163,6 +173,7 @@ button, input, select { font: inherit; }
   .hero-actions { flex-direction: column; align-items: stretch; margin-top: 26px; }
   .button { width: 100%; }
   .hero-note { display: none; }
+  .hero-audio-control { right: 20px; bottom: 19px; min-height: 35px; padding-inline: 12px; }
   .manifesto, .contact { min-height: 70vh; padding: 90px 20px; }
   .manifesto h2 { font-size: 48px; line-height: .92; }
   .manifesto > p:last-child { margin: 38px 0 0; font-size: 17px; }
