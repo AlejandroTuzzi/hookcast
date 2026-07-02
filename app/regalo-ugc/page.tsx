@@ -101,6 +101,30 @@ export default function UGCResourcePage() {
         </div>
       </section>
 
+      <section className="gift-socials">
+        <div className="gift-socials-heading">
+          <p className="section-label">Sigamos conectados</p>
+          <h2>Ideas, procesos<br />y experimentos.</h2>
+        </div>
+        <nav className="gift-social-grid" aria-label="Redes sociales de Alejandro Tuzzi">
+          <a href="https://www.instagram.com/alejandrotuzzi" target="_blank" rel="noreferrer">
+            <span className="gift-social-number">01</span>
+            <div><strong>Instagram</strong><small>@alejandrotuzzi</small></div>
+            <span className="gift-social-arrow">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/alejandrotuzzi/" target="_blank" rel="noreferrer">
+            <span className="gift-social-number">02</span>
+            <div><strong>LinkedIn</strong><small>/in/alejandrotuzzi</small></div>
+            <span className="gift-social-arrow">↗</span>
+          </a>
+          <a href="https://tuzzi.ai" target="_blank" rel="noreferrer">
+            <span className="gift-social-number">03</span>
+            <div><strong>Tuzzi.ai</strong><small>Mi trabajo y exploraciones</small></div>
+            <span className="gift-social-arrow">↗</span>
+          </a>
+        </nav>
+      </section>
+
       <footer className="gift-footer">
         <span>© {new Date().getFullYear()} HookCast Studio</span>
         <a href="mailto:alejandro@hookcast.studio">alejandro@hookcast.studio</a>
