@@ -256,6 +256,8 @@ button, input, select { font: inherit; }
 .gift-sheet { position: relative; margin: 0; overflow: hidden; border: 1px solid var(--line); background: #e9e5df; }
 .gift-sheet::after { content: ""; position: absolute; inset: 60% 0 0; background: linear-gradient(0deg, rgba(5,7,9,.8), transparent); pointer-events: none; }
 .gift-sheet img { width: 100%; height: auto; display: block; }
+.gift-sheet-download { position: absolute; z-index: 2; top: 18px; right: 18px; padding: 13px 15px; border: 1px solid rgba(255,255,255,.35); background: rgba(7,9,11,.7); color: #fff; backdrop-filter: blur(8px); font-size: 9px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.gift-sheet-download span { margin-left: 8px; color: var(--yellow); }
 .gift-next { min-height: 82svh; padding: clamp(100px, 12vw, 190px) clamp(24px, 8vw, 140px); display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at 85% 20%, rgba(0,191,255,.12), transparent 25%), var(--surface); border-top: 1px solid var(--line); }
 .gift-next h2 { margin: 0; font-size: clamp(62px, 8vw, 126px); line-height: .84; letter-spacing: -.065em; text-transform: uppercase; }
 .gift-next h2 em { color: var(--coral); font-style: normal; }

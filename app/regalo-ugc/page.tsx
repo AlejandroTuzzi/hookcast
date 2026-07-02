@@ -83,6 +83,7 @@ export default function UGCResourcePage() {
 
         <figure className="gift-sheet">
           <Image src={characterSheet} alt="Ficha de personaje UGC con vista frontal, trasera y primer plano" sizes="(max-width: 900px) 100vw, 56vw" />
+          <a className="gift-sheet-download" href="/resources/ficha-personaje-ugc.png" download>Descargar ficha PNG <span>↓</span></a>
           <figcaption><span>Ejemplo incluido</span><strong>Ficha de consistencia / 3 vistas</strong></figcaption>
         </figure>
       </section>
